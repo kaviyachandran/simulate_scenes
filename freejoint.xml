@@ -1,0 +1,41 @@
+<mujoco>
+	<compiler angle="radian" autolimits="true" />
+	<option timestep="0.001" integrator="RK4" solver="CG" gravity="0 0 -9.81">
+		<flag contact="enable" multiccd="enable"/>
+	</option>
+
+	<default>
+        <geom condim="4" solimp="0.99 0.99 0" solref="0.01 1" friction="1 0.006 0.0001"/>
+    </default>
+
+    <asset>
+    	<texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2=".6 .8 1" width="256" height="256"/>
+		<texture name="grid" type="2d" builtin="checker" width="112" height="112" rgb1="0 0 0" rgb2="1 1 1" />
+		<material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2" />
+	</asset>
+
+	<worldbody>
+		<geom name="floor" size="0 0 .05" type="plane" material="grid" condim="3" />
+		<light diffuse="1 1 1" pos="0 0 5" dir="0 0 -1" />
+		<light diffuse="1 1 1" pos="2 -1 5" dir="0 0 -1" />
+		<light diffuse="1 1 1" pos="1 1 5" dir="0 0 -1" />
+	</worldbody>
+	<worldbody>
+		<body name="free_cup" pos="2 -0.2 0.7">
+			<freejoint name="dest_cup_joint"/>
+     		<inertial pos="0.0 0.0 0.0" mass="0.01" diaginertia="0.0008 0.0008 0.00015" />
+			<geom name="bottom_cylinder" type="cylinder" pos="0 0 -0.076" size="0.036 0.032" rgba="0 1 0 1"/>
+			<geom type="box" pos="0 0 -0.072" size="0.04 0.04 0.04" rgba="1 1 0 1" group="3" />
+			<geom type="box" pos="0.03 0 0.035" euler="0 0 0" size="0.0044 0.013420519420888278 0.08" rgba="0 1 0 1" />
+			<geom type="box" pos="0.021213 0.021213 0.035" euler="0 0 0.7853981633974483" size="0.0044 0.013420519420888278 0.08" rgba="0 1 0 1" />
+			<geom type="box" pos="0 0.03 0.035" euler="0 0 1.5707963267948966" size="0.0044 0.013420519420888278 0.08" rgba="0 1 0 1" />
+			<geom type="box" pos="-0.021213 0.021213 0.035" euler="0 0 2.356194490192345" size="0.0044 0.013420519420888278 0.08" rgba="0 1 0 1" />
+			<geom type="box" pos="-0.03 0 0.035" euler="0 0 3.141592653589793" size="0.0044 0.013420519420888278 0.08" rgba="0 1 0 1" />
+			<geom type="box" pos="-0.021213 -0.021213 0.035" euler="0 0 -2.356194490192345" size="0.0044 0.013420519420888278 0.08" rgba="0 1 0 1" />
+			<geom type="box" pos="0 -0.03 0.035" euler="0 0 -1.5707963267948966" size="0.0044 0.013420519420888278 0.08" rgba="0 1 0 1" />
+			<geom type="box" pos="0.021213 -0.021213 0.035" euler="0 0 -0.7853981633974483" size="0.0044 0.013420519420888278 0.08" rgba="0 1 0 1" />
+		</body>
+	</worldbody>
+
+
+</mujoco>
