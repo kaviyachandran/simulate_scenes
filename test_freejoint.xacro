@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<robot name="cup" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="sphere_inertia" params="radius mass">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia
+          ixx="1" ixy="0.0" ixz="0.0"
+          iyy="1" iyz="0.0"
+          izz="1"/>
+    </inertial>
+  </xacro:macro>
+
+  <link name="world"/>
+  <link name="cup_0"/>
+
+  <link name="cup_box1">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0088 0.02684 0.16"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="cup_box2">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0088 0.02684 0.16"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+
+  <link name="cup_box3">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0088 0.02684 0.16"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+
+  <link name="cup_box4">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0088 0.02684 0.16"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="cup_box5">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0088 0.02684 0.16"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="cup_box6">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0088 0.02684 0.16"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="cup_box7">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0088 0.02684 0.16"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="cup_box8">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0088 0.02684 0.16"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="cup_bottom">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.034" radius="0.036"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="cup_1"/>
+  <link name="cup_2"/>
+  <link name="cup_3"/>
+  <link name="cup_4"/>
+  <link name="cup_5"/>
+  <link name="cup_6"/>
+
+
+    
+    <!-- JOINTS -->
+
+    <joint name="cup_joint" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_1"/>  
+      <origin xyz="2.0 -0.2 0.7"/>
+    </joint>
+
+    <joint name="cup_box_joint1" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_box1"/>  
+      <origin xyz="0.03 0 0.035"/>
+    </joint>
+
+    <joint name="cup_box_joint2" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_box2"/>  
+      <origin xyz="0.021213 0.021213 0.035" rpy="0 0 0.7853981633974483"/>
+    </joint>
+
+    <joint name="cup_box_joint3" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_box3"/>  
+      <origin xyz="0 0.03 0.035" rpy="0 0 1.5707963267948966"/>
+    </joint>
+
+    <joint name="cup_box_joint4" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_box4"/>  
+      <origin xyz="-0.021213 0.021213 0.035" rpy="0 0 2.356194"/>
+    </joint>
+
+    <joint name="cup_box_joint5" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_box5"/>  
+      <origin xyz="-0.03 0 0.035" rpy="0 0 3.141592653589793"/>
+    </joint>
+
+    <joint name="cup_box_joint6" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_box6"/>  
+      <origin xyz="-0.021213 -0.021213 0.035" rpy="0 0 -2.356194490192345"/>
+    </joint>
+
+    <joint name="cup_box_joint7" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_box7"/>  
+      <origin xyz="0 -0.03 0.035" rpy="0 0 -1.5707963267948966"/>
+    </joint>
+
+    <joint name="cup_box_joint8" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_box8"/>  
+      <origin xyz="0.021213 -0.021213 0.035" rpy="0 0 -0.7853981633974483"/>
+    </joint>
+
+    <joint name="cup_box_bottom_joint" type="fixed">
+      <parent link="cup_0"/>
+      <child link="cup_bottom"/>  
+      <origin xyz="0 0 -0.076" />
+    </joint>
+
+    <joint name="cup_rot_x_joint" type="revolute">
+      <parent link="cup_0"/>
+      <child link="cup_1"/>  
+      <origin xyz="0.0 0. 0"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="30" lower="-3.14" upper="3.140" velocity="1.0"/>
+    </joint>
+
+     <joint name="cup_rot_y_int" type="revolute">
+      <parent link="cup_0"/>
+      <child link="cup_2"/>
+      <origin xyz="0.0 0. 0."/>
+      <axis xyz="0 1 0" />
+      <limit effort="30" lower="-3.14" upper="3.140" velocity="1.0"/>
+    </joint>
+
+    <joint name="cup_rot_z_joint" type="revolute">
+      <parent link="cup_0"/>
+      <child link="cup_3"/>  
+      <origin xyz="0.0 0. 0"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="30" lower="-3.14" upper="3.140" velocity="1.0"/>
+    </joint>
+    
+    <joint name="cup_prism_x_joint" type="prismatic">
+      <parent link="cup_0"/>
+      <child link="cup_4"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="30" lower="-100" upper="100" velocity="1.0"/>
+    </joint>
+
+    <joint name="cup_prism_y_joint" type="prismatic">
+      <parent link="cup_0"/>
+      <child link="cup_5"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="30" lower="-100" upper="100" velocity="1.0"/>
+    </joint>
+
+    <joint name="cup_prism_z_joint" type="prismatic">
+      <parent link="cup_0"/>
+      <child link="cup_6"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="30" lower="-100" upper="100" velocity="1.0"/>
+    </joint>
+</robot>
+

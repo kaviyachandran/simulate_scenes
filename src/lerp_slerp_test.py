@@ -6,7 +6,7 @@ import numpy as np
 from geometry_msgs.msg import Quaternion, TransformStamped
 
 
-def interpolate(self, A, B, TOTAL_VAL=50):
+def interpolate(A, B, TOTAL_VAL=50):
     """
     A is a list with three elements
     B is a list with three elements

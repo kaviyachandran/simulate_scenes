@@ -1,0 +1,5 @@
+<launch>
+  <param name="robot_description" value= '$(find simulate_scenes)/test_freejoint.urdf' />
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+</launch>
