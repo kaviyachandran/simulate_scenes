@@ -1,0 +1,84 @@
+<mujoco model="ballRob">
+  <compiler angle="radian" autolimits="true"/>
+<!--  <statistic meansize="1e-05" extent="0.4" center="1 0 0.2"/>-->
+<!--  <worldbody>-->
+<!--    <geom size="0.2" pos="1 0 0.2" rgba="0 1 1 1"/>-->
+<!--    <body name="ball_x" pos="1 0 0.2">-->
+<!--      <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>-->
+<!--      <joint name="ball_to_ballx" pos="0 0 0" axis="1 0 0" type="slide" range="-100 100"/>-->
+<!--    </body>-->
+<!--    <body name="ball_y" pos="1 0 0.2">-->
+<!--      <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>-->
+<!--      <joint name="ball_to_bally" pos="0 0 0" axis="0 1 0" type="slide" range="-100 100"/>-->
+<!--    </body>-->
+<!--    <body name="ball_z" pos="1 0 0.2">-->
+<!--      <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>-->
+<!--      <joint name="ball_to_ballz" pos="0 0 0" axis="0 0 1" type="slide" range="-100 100"/>-->
+<!--    </body>-->
+<!--    <body name="ball_rotx" pos="1 0 0.2">-->
+<!--      <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>-->
+<!--      <joint name="ball_to_ball_rotx" pos="0 0 0" axis="1 0 0" range="-3.14 3.14"/>-->
+<!--    </body>-->
+<!--    <body name="ball_roty" pos="1 0 0.2">-->
+<!--      <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>-->
+<!--      <joint name="ball_to_ball_roty" pos="0 0 0" axis="0 1 0" range="-3.14 3.14"/>-->
+<!--    </body>-->
+<!--    <body name="ball_rotz" pos="1 0 0.2">-->
+<!--      <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>-->
+<!--      <joint name="base_to_ball_rotz" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>-->
+<!--    </body>-->
+<!--  </worldbody>-->
+  	<compiler angle="radian"/>
+	<option timestep="0.005" integrator="RK4" solver="CG" gravity="0 0 -9.81">
+		<flag contact="enable" multiccd="enable"/>
+	</option>
+
+
+  <default>
+        <geom condim="4" solimp="0.99 0.99 0" solref="0.01 1" friction="1 0.06 0.001"/>
+    </default>
+
+	<asset>
+    <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2=".6 .8 1" width="256" height="256"/>
+		<texture name="grid" type="2d" builtin="checker" width="112" height="112" rgb1="0 0 0" rgb2="1 1 1" />
+		<material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2" />
+	</asset>
+
+	<worldbody>
+		<geom name="floor" size="0 0 .05" type="plane" material="grid" condim="3" />
+		<light diffuse="1 1 1" pos="0 0 5" dir="0 0 -1" />
+		<light diffuse="1 1 1" pos="2 -1 5" dir="0 0 -1" />
+		<light diffuse="1 1 1" pos="1 1 5" dir="0 0 -1" />
+	</worldbody>
+  <worldbody>
+    <body name="box_link" pos="1.5 0 0.2">
+      <freejoint/>
+      <geom name="blue_box" type="box" size="0.07 0.07 0.07"  rgba="0 0 1 1"/>
+    </body>
+
+    <body name="ball_link" pos="0.5 0 0.2">
+<!--      <freejoint/>-->
+      <joint name="transx_joint" type="slide" axis="1 0 0" limited="true" range="-50.0 50.0"/>
+      <joint name="transy_joint" type="slide" axis="0 1 0" limited="true" range="-50.0 50.0"/>
+      <joint name="transz_joint" type="slide" axis="0 0 1" limited="true" range="0.0 2.0"/>
+      <joint name="rotx_joint" type="hinge" axis="1 0 0" limited="true" range="-3.14 3.14"/>
+      <joint name="roty_joint" type="hinge" axis="0 1 0" limited="true" range="-3.14 3.14"/>
+      <joint name="rotz_joint" type="hinge" axis="0 0 1" limited="true" range="-3.14 3.14"/>
+      <geom name="ball" type="sphere" size="0.2" rgba="0 1 1 1" friction=".1 .1 .1" mass="1"/>
+    </body>
+  </worldbody>
+  <actuator>
+    <!-- <position ctrllimited="true" ctrlrange="-50.0 50.0" joint="transx_joint"/>
+    <position ctrllimited="true" ctrlrange="-50.0 50.0" joint="transY"/>
+    <position ctrllimited="true" ctrlrange="0.0 2.0" joint="transZ"/>
+    <position ctrllimited="true" ctrlrange="-3.14 3.14" joint="hingeX"/>
+    <position ctrllimited="true" ctrlrange="-3.14 3.14" joint="hingeY"/>
+    <position ctrllimited="true" ctrlrange="-3.14 3.14" joint="hingeZ"/> -->
+      <motor name="torque0" joint="transx_joint"  gear="1" />
+      <motor name="torque1" joint="transy_joint"  gear="1" />
+      <motor name="torque2" joint="transz_joint"  gear="1" />
+      <motor name="torque3" joint="rotx_joint"  gear="1" />
+      <motor name="torque4" joint="roty_joint"  gear="1" />
+      <motor name="torque5" joint="rotz_joint"  gear="1" />
+  </actuator>
+</mujoco>

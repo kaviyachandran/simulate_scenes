@@ -4,7 +4,7 @@ import mujoco as mj
 import mediapy as media
 
 
-initial_file_path = "world_two_cups.xml"
+initial_file_path = "../model/world_two_cups.xml"
 # Create MuJoCo context
 path_to_xml = os.path.abspath(initial_file_path)
 print(path_to_xml)

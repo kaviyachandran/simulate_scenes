@@ -1,0 +1,33 @@
+hardware_interface:
+  sim_control_mode: 0
+  joints:
+    - transx_joint
+    - transy_joint
+    - transz_joint
+    - rotx_joint
+    - roty_joint
+    - rotz_joint
+generic_hw_control_loop:
+  loop_hz: &loop_rate 100
+  cycle_time_error_threshold: 0.015
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: *loop_rate
+whole_body_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - transx_joint
+    - transy_joint
+    - transz_joint
+    - rotx_joint
+    - roty_joint
+    - rotz_joint
+  gains:
+    transx_joint: {p: 1000.0, i: 100.0, d: 50.0, i_clamp: 10.0}
+    transy_joint: {p: 1000.0, i: 100.0, d: 50.0, i_clamp: 10.0}
+    transz_joint: {p: 1000.0, i: 100.0, d: 50.0, i_clamp: 10.0}
+    rotx_joint: {p: 1000.0, i: 100.0, d: 50.0, i_clamp: 10.0}
+    roty_joint: {p: 1000.0, i: 100.0, d: 50.0, i_clamp: 10.0}
+    rotz_joint: {p: 1000.0, i: 100.0, d: 50.0, i_clamp: 10.0}
+  constraints:
+    stopped_velocity_tolerance: 0

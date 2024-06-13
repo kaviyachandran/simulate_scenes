@@ -20,7 +20,7 @@
 import mujoco as mj
 import mujoco_viewer
 
-model = mj.MjModel.from_xml_path('world_two_cups.xml')
+model = mj.MjModel.from_xml_path('../model/world_two_cups.xml')
 data = mj.MjData(model)
 
 # create the viewer object

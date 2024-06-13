@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<robot name="ballbot">
+  <link name="map"/>
+
+  <link name="ball_link">
+   <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <sphere radius="0.2"/>
+      </geometry>
+      <origin xyz="0 0 0"/>
+      <material name="Cyan">
+        <color rgba="0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+     <collision>
+      <origin xyz="0 0 0"/>
+        <geometry>
+            <sphere radius="0.2"/>
+        </geometry>
+     </collision>
+  </link>
+  <link name="ball_x">
+   <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+  </link>
+  <link name="ball_y">
+  <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+  </link>
+  <link name="ball_z">
+  <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+  </link>
+  <link name="ball_rotx">
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+  </link>
+
+  <link name="ball_roty">
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+  </link>
+
+  <joint name="transx_joint" type="prismatic">
+    <origin xyz="1 0 0.2"/>
+    <parent link="map"/>
+    <child link="ball_x"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="30" lower="-100" upper="100" velocity="1.0"/>
+  </joint>
+
+  <joint name="transy_joint" type="prismatic">
+    <origin xyz="0 0 0"/>
+    <parent link="ball_x"/>
+    <child link="ball_y"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" lower="-100" upper="100" velocity="1.0"/>
+  </joint>
+
+  <joint name="transz_joint" type="prismatic">
+    <origin xyz="0 0 0"/>
+    <parent link="ball_y"/>
+    <child link="ball_z"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-100" upper="100" velocity="1.0"/>
+  </joint>
+
+  <joint name="rotx_joint" type="revolute">
+    <origin xyz="0 0 0"/>
+    <parent link="ball_z"/>
+    <child link="ball_rotx"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="30" lower="-3.14" upper="3.14"  velocity="1.0"/>
+  </joint>
+
+  <joint name="roty_joint" type="revolute">
+    <origin xyz="0 0 0"/>
+    <parent link="ball_rotx"/>
+    <child link="ball_roty"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" lower="-3.14" upper="3.14"  velocity="1.0"/>
+  </joint>
+
+  <joint name="rotz_joint" type="revolute">
+    <origin xyz="0 0 0"/>
+    <parent link="ball_roty"/>
+    <child link="ball_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-3.14" upper="3.14" velocity="1.0"/>
+  </joint>
+</robot>

@@ -20,7 +20,7 @@ if not window:
 
 # Set the current context to the window
 glfw.make_context_current(window)
-initial_file_path = "world_two_cups.xml"
+initial_file_path = "../model/world_two_cups.xml"
 
 # Create MuJoCo context
 path_to_xml = os.path.abspath(initial_file_path)
