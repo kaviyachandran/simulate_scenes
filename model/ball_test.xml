@@ -1,0 +1,41 @@
+<mujoco model="ballbot">
+    <compiler angle="radian" autolimits="true" boundmass="0.000001" boundinertia="0.000001" balanceinertia="true" discardvisual="true"/>
+    <worldbody>
+        <body name="ballbot" gravcomp="1" pos="0.000000 0.000000 0.000000" quat="1.000000 0.000000 0.000000 0.000000">
+            <body name="ball_x" pos="1 0 0.2" gravcomp="1">
+                <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                <joint name="transx_joint" pos="0 0 0" axis="1 0 0" type="slide" range="-100 100"/>
+                <body name="ball_y" gravcomp="1">
+                    <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                    <joint name="transy_joint" pos="0 0 0" axis="0 1 0" type="slide" range="-100 100"/>
+                    <body name="ball_z" gravcomp="1">
+                        <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                        <joint name="transz_joint" pos="0 0 0" axis="0 0 1" type="slide" range="-100 100"/>
+                        <body name="ball_rotx" gravcomp="1">
+                            <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                            <joint name="rotx_joint" pos="0 0 0" axis="1 0 0" range="-3.14 3.14"/>
+                            <body name="ball_roty" gravcomp="1">
+                                <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                                <joint name="roty_joint" pos="0 0 0" axis="0 1 0" range="-3.14 3.14"/>
+                                <body name="ball_link" gravcomp="1">
+                                    <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                                    <joint name="rotz_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>
+                                    <geom size="0.2" rgba="0 1 1 1"/>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+<!--    <equality/>-->
+<!--    <contact>-->
+<!--        <exclude body1="ballbot" body2="ball_x"/>-->
+<!--        <exclude body1="ball_x" body2="ball_y"/>-->
+<!--        <exclude body1="ball_y" body2="ball_z"/>-->
+<!--        <exclude body1="ball_z" body2="ball_rotx"/>-->
+<!--        <exclude body1="ball_rotx" body2="ball_roty"/>-->
+<!--        <exclude body1="ball_roty" body2="ball_link"/>-->
+<!--    </contact>-->
+</mujoco>

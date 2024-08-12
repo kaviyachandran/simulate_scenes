@@ -1,0 +1,67 @@
+<mujoco model="ballbot">
+	<compiler angle="radian" boundmass="0.000001" boundinertia="0.000001" balanceinertia="true" autolimits="true"/>
+	<option timestep="0.001" integrator="RK4" solver="CG" gravity="0 0 -9.81">
+		<flag sensornoise="disable" contact="enable"/>
+	</option>
+
+
+<!--  	<default>-->
+<!--		<geom condim="4" solimp="0.99 0.99 0" solref="0.01 1" friction="1 0.005 0.0001"/>-->
+<!--	</default>-->
+
+	<worldbody>
+<!--		 <body name="free_cup" pos="2 -0.2 0.28">-->
+<!--			 <joint name="transx_joint" type="slide" axis="1 0 0" limited="true" range="-50.0 50.0"/>-->
+<!--			 <joint name="transy_joint" type="slide" axis="0 1 0" limited="true" range="-50.0 50.0"/>-->
+<!--			 <joint name="transz_joint" type="slide" axis="0 0 1" limited="true" range="0.0 2.0"/>-->
+<!--			 <joint name="rotx_joint" type="hinge" axis="1 0 0" limited="true" range="-3.14 3.14"/>-->
+<!--			 <joint name="roty_joint" type="hinge" axis="0 1 0" limited="true" range="-3.14 3.14"/>-->
+<!--			 <joint name="rotz_joint" type="hinge" axis="0 0 1" limited="true" range="-3.14 3.14"/>-->
+<!--			<inertial pos="0.0 0.0 0.0" mass="0.01" diaginertia="0.0008 0.0008 0.00015" />-->
+<!--			<geom type="box" pos="0 0 -0.076" size="0.03 0.03 0.03" rgba="0 1 1 0.8"/>-->
+<!--			<geom type="box" pos="0.03 0 0" euler="0 0 0" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />-->
+<!--			<geom type="box" pos="0.021213 0.021213 0" euler="0 0 0.7853981633974483" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />-->
+<!--			<geom type="box" pos="0 0.03 0" euler="0 0 1.5707963267948966" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />-->
+<!--			<geom type="box" pos="-0.021213 0.021213 0" euler="0 0 2.356194490192345" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />-->
+<!--			<geom type="box" pos="-0.03 0 0" euler="0 0 3.141592653589793" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />-->
+<!--			<geom type="box" pos="-0.021213 -0.021213 0" euler="0 0 -2.356194490192345" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />-->
+<!--			<geom type="box" pos="0 -0.03 0" euler="0 0 -1.5707963267948966" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />-->
+<!--			<geom type="box" pos="0.021213 -0.021213 0" euler="0 0 -0.7853981633974483" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />-->
+<!--		</body>-->
+		<body name="ballbot" gravcomp="1" pos="0.000000 0.000000 0.000000" quat="1.000000 0.000000 0.000000 0.000000">
+            <body name="ball_x" pos="2 -0.2 0.4" gravcomp="1">
+                <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                <joint name="transx_joint" pos="0 0 0" axis="1 0 0" type="slide" range="-100 100"/>
+                <body name="ball_y" gravcomp="1">
+                    <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                    <joint name="transy_joint" pos="0 0 0" axis="0 1 0" type="slide" range="-100 100"/>
+                    <body name="ball_z" gravcomp="1">
+                        <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                        <joint name="transz_joint" pos="0 0 0" axis="0 0 1" type="slide" range="-100 100"/>
+                        <body name="ball_rotx" gravcomp="1">
+                            <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                            <joint name="rotx_joint" pos="0 0 0" axis="1 0 0" range="-3.14 3.14"/>
+                            <body name="ball_roty" gravcomp="1">
+                                <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                                <joint name="roty_joint" pos="0 0 0" axis="0 1 0" range="-3.14 3.14"/>
+                                <body name="ball_link" gravcomp="1">
+                                    <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
+                                    <joint name="rotz_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>
+									<geom type="box" pos="0 0 -0.076" size="0.03 0.03 0.03" rgba="0 1 1 0.8"/>
+									<geom type="box" pos="0.03 0 0" euler="0 0 0" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />
+									<geom type="box" pos="0.021213 0.021213 0" euler="0 0 0.7853981633974483" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />
+									<geom type="box" pos="0 0.03 0" euler="0 0 1.5707963267948966" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />
+									<geom type="box" pos="-0.021213 0.021213 0" euler="0 0 2.356194490192345" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />
+									<geom type="box" pos="-0.03 0 0" euler="0 0 3.141592653589793" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />
+									<geom type="box" pos="-0.021213 -0.021213 0" euler="0 0 -2.356194490192345" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />
+									<geom type="box" pos="0 -0.03 0" euler="0 0 -1.5707963267948966" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />
+									<geom type="box" pos="0.021213 -0.021213 0" euler="0 0 -0.7853981633974483" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+	</worldbody>
+</mujoco>
