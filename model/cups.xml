@@ -29,22 +29,22 @@
 <!--			<geom type="box" pos="0.021213 -0.021213 0" euler="0 0 -0.7853981633974483" size="0.0044 0.013420519420888278 0.08" rgba="0 1 1 0.8" />-->
 <!--		</body>-->
 		<body name="ballbot" gravcomp="1" pos="0.000000 0.000000 0.000000" quat="1.000000 0.000000 0.000000 0.000000">
-            <body name="ball_x" pos="2 -0.2 0.4" gravcomp="1">
+            <body name="cup_x" pos="2 -0.2 0.4" gravcomp="1">
                 <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
                 <joint name="transx_joint" pos="0 0 0" axis="1 0 0" type="slide" range="-100 100"/>
-                <body name="ball_y" gravcomp="1">
+                <body name="cup_y" gravcomp="1">
                     <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
                     <joint name="transy_joint" pos="0 0 0" axis="0 1 0" type="slide" range="-100 100"/>
-                    <body name="ball_z" gravcomp="1">
+                    <body name="cup_z" gravcomp="1">
                         <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
                         <joint name="transz_joint" pos="0 0 0" axis="0 0 1" type="slide" range="-100 100"/>
-                        <body name="ball_rotx" gravcomp="1">
+                        <body name="cup_rotx" gravcomp="1">
                             <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
                             <joint name="rotx_joint" pos="0 0 0" axis="1 0 0" range="-3.14 3.14"/>
-                            <body name="ball_roty" gravcomp="1">
+                            <body name="cup_roty" gravcomp="1">
                                 <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
                                 <joint name="roty_joint" pos="0 0 0" axis="0 1 0" range="-3.14 3.14"/>
-                                <body name="ball_link" gravcomp="1">
+                                <body name="free_cup" gravcomp="1">
                                     <inertial pos="0 0 0" mass="1" diaginertia="0.001667 0.001667 0.001667"/>
                                     <joint name="rotz_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14"/>
 									<geom type="box" pos="0 0 -0.076" size="0.03 0.03 0.03" rgba="0 1 1 0.8"/>

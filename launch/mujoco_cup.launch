@@ -17,15 +17,20 @@
         <rosparam command="load" file="$(find simulate_scenes)/config/ros_control_sim_mujoco.yaml" />
 
          <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="spawn
-            joint_state_controller
-            whole_body_controller"
+              joint_state_controller
+              transx_velocity_controller
+              transy_velocity_controller
+              transz_velocity_controller
+              rotx_velocity_controller
+              roty_velocity_controller
+              rotz_velocity_controller"
          />
     </group>
 
-    <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" />
+<!--     <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" /> -->
     <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen">
         <rosparam param="source_list">
-            - ballbot/joint_states
+            - /ballbot/joint_states
         </rosparam>
     </node>
 <!--     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->

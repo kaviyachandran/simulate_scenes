@@ -31,3 +31,42 @@ whole_body_controller:
     rotz_joint: {p: 1000.0, i: 100.0, d: 50.0, i_clamp: 10.0}
   constraints:
     stopped_velocity_tolerance: 0
+
+
+#velocity_controllers
+vel_gains: &vel_gains
+  p: 100.0
+  i: 1000.0
+  d: 0.1
+  i_clamp: 10.0
+
+transx_velocity_controller:
+  type: effort_controllers/JointVelocityController
+  joint: transx_joint
+  pid: *vel_gains
+
+transy_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: transy_joint
+    pid: *vel_gains
+
+transz_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: transz_joint
+    pid: *vel_gains
+
+rotx_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: rotx_joint
+    pid: *vel_gains
+
+roty_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: roty_joint
+    pid: *vel_gains
+
+rotz_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: rotz_joint
+    pid: *vel_gains
+

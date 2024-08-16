@@ -18,13 +18,18 @@
 
          <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="spawn
           joint_state_controller
-          whole_body_controller" />
+          transx_joint_controller
+          transy_joint_controller
+          transz_joint_controller
+          rotx_joint_controller
+          roty_joint_controller
+          rotz_joint_controller" />
     </group>
 
     <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" />
     <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen">
         <rosparam param="source_list">
-            - ballbot/joint_states
+            - /ballbot/joint_states
         </rosparam>
     </node>
 <!--     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
