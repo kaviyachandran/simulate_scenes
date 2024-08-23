@@ -4,26 +4,20 @@
       3. remap joint state publisher
     -->
     <arg name="namespace" default="ballbot" />
-    <param name="robot_description" textfile="$(find simulate_scenes)/model/freejoint_ball.urdf" />
+    <param name="robot_description" textfile="$(find simulate_scenes)/model/cups.urdf" />
 
     <group ns="$(arg namespace)">
         <include file="$(find mujoco_sim)/launch/mujoco_sim.launch">
-          <arg name="robot" value="$(find simulate_scenes)/model/ball_test.xml" />
+          <arg name="robot" value="$(find simulate_scenes)/model/cups.xml" />
           <arg name="use_urdf" value="false" />
           <arg name="config" default="$(find simulate_scenes)/config/mujoco_config.yaml" />
-<!--           <arg name="world" value="$(find iai_pr2_sim)/config/mujoco_world.xml" /> -->
+          <arg name="world" value="$(find simulate_scenes)/model/particles.xml" />
           <arg name="disable_parent_child_collision_level" value="1" />
         </include>
         <rosparam command="load" file="$(find simulate_scenes)/config/ros_control_sim_mujoco.yaml" />
-
          <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="spawn
           joint_state_controller
-          transx_joint_controller
-          transy_joint_controller
-          transz_joint_controller
-          rotx_joint_controller
-          roty_joint_controller
-          rotz_joint_controller" />
+          whole_body_controller" />
     </group>
 
     <node name="rqt_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" />
