@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<robot name="ballbot">
+    <!-- Ground plane -->
+     <link name="map"/>
+
+         <!-- Table -->
+    <link name="table">
+        <visual>
+            <geometry>
+                <box size="0.4 2 0.2"/>
+            </geometry>
+            <material name="table_material">
+                <color rgba="0.89 0.72 0.56 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.4 2 0.2"/>
+            </geometry>
+        </collision>
+        
+    </link>
+
+    <!-- Free Cup  -->
+    <link name="free_cup">
+        <!-- Central box -->
+        <visual>
+            <geometry>
+                <box size="0.068 0.068 0.068"/>
+            </geometry>
+            <origin xyz="0 0 -0.076" rpy="0 0 0"/>
+            <material name="cup_material1">
+                <color rgba="0 1 1 0.8"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.068 0.068 0.068"/>
+            </geometry>
+            <origin xyz="0 0 -0.076" rpy="0 0 0"/>
+        </collision>
+
+        <!-- Additional boxes -->
+        <visual>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="0.03 0 0" rpy="0 0 0"/>
+            <material name="cup_material1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="0.03 0 0" rpy="0 0 0"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="0.021213 0.021213 0" rpy="0 0 0.7853981633974483"/>
+            <material name="cup_material1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="0.021213 0.021213 0" rpy="0 0 0.7853981633974483"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="0 0.03 0" rpy="0 0 1.5707963267948966"/>
+            <material name="cup_material1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="0 0.03 0" rpy="0 0 1.5707963267948966"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="-0.021213 0.021213 0" rpy="0 0 2.356194490192345"/>
+            <material name="cup_material1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="-0.021213 0.021213 0" rpy="0 0 2.356194490192345"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="-0.03 0 0" rpy="0 0 3.141592653589793"/>
+            <material name="cup_material1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="-0.03 0 0" rpy="0 0 3.141592653589793"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="-0.021213 -0.021213 0" rpy="0 0 -2.356194490192345"/>
+            <material name="cup_material1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="-0.021213 -0.021213 0" rpy="0 0 -2.356194490192345"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="0 -0.03 0" rpy="0 0 -1.5707963267948966"/>
+            <material name="cup_material1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="0 -0.03 0" rpy="0 0 -1.5707963267948966"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.064 0.16"/>
+            </geometry>
+            <origin xyz="0.021213 -0.021213 0" rpy="0 0 -0.7853981633974483"/>
+            <material name="cup_material1"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.0646 0.16"/>
+            </geometry>
+            <origin xyz="0.021213 -0.021213 0" rpy="0 0 -0.7853981633974483"/>
+        </collision>
+
+    </link>
+
+     <!-- Free Cup 2 -->
+    <link name="free_cup2">
+        <!-- Central box -->
+        <visual>
+            <geometry>
+                <box size="0.06 0.06 0.06"/>
+            </geometry>
+            <origin xyz="0 0 -0.076" rpy="0 0 0"/>
+            <material name="cup_material">
+                <color rgba="0 1 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.06 0.06 0.06"/>
+            </geometry>
+            <origin xyz="0 0 -0.076" rpy="0 0 0"/>
+        </collision>
+        
+        <!-- Additional boxes -->
+        <visual>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0.03 0 0" rpy="0 0 0"/>
+            <material name="cup_material"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0.03 0 0" rpy="0 0 0"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0.021213 0.021213 0" rpy="0 0 0.7853981633974483"/>
+            <material name="cup_material"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0.021213 0.021213 0" rpy="0 0 0.7853981633974483"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0 0.03 0" rpy="0 0 1.5707963267948966"/>
+            <material name="cup_material"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0 0.03 0" rpy="0 0 1.5707963267948966"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="-0.021213 0.021213 0" rpy="0 0 2.356194490192345"/>
+            <material name="cup_material"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="-0.021213 0.021213 0" rpy="0 0 2.356194490192345"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="-0.03 0 0" rpy="0 0 3.141592653589793"/>
+            <material name="cup_material"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="-0.03 0 0" rpy="0 0 3.141592653589793"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="-0.021213 -0.021213 0" rpy="0 0 -2.356194490192345"/>
+            <material name="cup_material"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="-0.021213 -0.021213 0" rpy="0 0 -2.356194490192345"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0 -0.03 0" rpy="0 0 -1.5707963267948966"/>
+            <material name="cup_material"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0 -0.03 0" rpy="0 0 -1.5707963267948966"/>
+        </collision>
+        <visual>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0.021213 -0.021213 0" rpy="0 0 -0.7853981633974483"/>
+            <material name="cup_material"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.0088 0.026841038841776556 0.16"/>
+            </geometry>
+            <origin xyz="0.021213 -0.021213 0" rpy="0 0 -0.7853981633974483"/>
+        </collision>
+
+    </link>
+
+     <link name="free_cup_x">
+        <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="1.0"/>
+        <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+    </link>
+    <link name="free_cup_y">
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+  </link>
+  <link name="free_cup_z">
+  <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+  </link>
+  <link name="free_cup_rotx">
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+  </link>
+
+  <link name="free_cup_roty">
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001667" ixy="0.0" ixz="0.0" iyy="0.001667" iyz="0.0" izz="0.001667"/>
+    </inertial>
+  </link>
+
+
+
+
+    <!-- Joints -->
+  <joint name="transx_joint" type="prismatic">
+    <origin xyz="2 -0.2 0.28"/>
+    <parent link="map"/>
+    <child link="free_cup_x"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="30" lower="-100" upper="100" velocity="1.0"/>
+  </joint>
+
+  <joint name="transy_joint" type="prismatic">
+    <origin xyz="0 0 0"/>
+    <parent link="free_cup_x"/>
+    <child link="free_cup_y"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" lower="-100" upper="100" velocity="1.0"/>
+  </joint>
+
+  <joint name="transz_joint" type="prismatic">
+    <origin xyz="0 0 0"/>
+    <parent link="free_cup_y"/>
+    <child link="free_cup_z"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-100" upper="100" velocity="1.0"/>
+  </joint>
+
+  <joint name="rotx_joint" type="revolute">
+    <origin xyz="0 0 0"/>
+    <parent link="free_cup_z"/>
+    <child link="free_cup_rotx"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="30" lower="-3.14" upper="3.14"  velocity="1.0"/>
+  </joint>
+
+  <joint name="roty_joint" type="revolute">
+    <origin xyz="0 0 0"/>
+    <parent link="free_cup_rotx"/>
+    <child link="free_cup_roty"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" lower="-3.14" upper="3.14"  velocity="1.0"/>
+  </joint>
+
+  <joint name="rotz_joint" type="revolute">
+    <origin xyz="0 0 0"/>
+    <parent link="free_cup_roty"/>
+    <child link="free_cup"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-3.14" upper="3.14" velocity="1.0"/>
+  </joint>
+
+    <joint name="joint_free_cup2" type="fixed">
+        <parent link="map"/>
+        <child link="free_cup2"/>
+        <origin xyz="2 -0.6 0.3"/>
+    </joint>
+
+    <joint name="joint_table" type="fixed">
+        <parent link="map"/>
+        <child link="table"/>
+        <origin xyz="2 0 0.1"/>
+    </joint>
+
+</robot>
+

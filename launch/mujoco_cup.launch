@@ -4,11 +4,11 @@
       3. remap joint state publisher
     -->
     <arg name="namespace" default="ballbot" />
-    <param name="robot_description" textfile="$(find simulate_scenes)/model/cups.urdf" />
+    <param name="robot_description" textfile="$(find simulate_scenes)/model/cup_corner.urdf" />
 
     <group ns="$(arg namespace)">
         <include file="$(find mujoco_sim)/launch/mujoco_sim.launch">
-          <arg name="robot" value="$(find simulate_scenes)/model/cups.xml" />
+          <arg name="robot" value="$(find simulate_scenes)/model/cup_corner.xml" />
           <arg name="use_urdf" value="false" />
           <arg name="config" default="$(find simulate_scenes)/config/mujoco_config.yaml" />
           <arg name="world" value="$(find simulate_scenes)/model/particles.xml" />
